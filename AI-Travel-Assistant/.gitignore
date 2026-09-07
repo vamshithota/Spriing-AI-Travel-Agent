@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+# Add to your .gitignore file
+**/src/main/resources/application-local.properties
+**/src/main/resources/application-*.yml
+.env
