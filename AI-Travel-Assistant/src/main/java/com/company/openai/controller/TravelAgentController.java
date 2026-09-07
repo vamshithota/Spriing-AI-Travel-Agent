@@ -24,7 +24,7 @@ public class TravelAgentController {
     public record ChatResponse(String response, String conversationId) {}
     @PostMapping("/chat")
     public ResponseEntity<ChatResponse> chat(@RequestBody ChatRequest chatRequest){
-        String result = travelAgentService.processUserRequest(chatRequest.prompt(), chatRequest.conversationId);
+        String result = travelAgentService.processTravelRequest(chatRequest.prompt(), chatRequest.conversationId);
         return ResponseEntity.ok(new ChatResponse(result, chatRequest.conversationId()));
     }
 

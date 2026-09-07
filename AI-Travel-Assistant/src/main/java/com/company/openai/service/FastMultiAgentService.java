@@ -225,7 +225,8 @@ public class FastMultiAgentService {
 // TODO -- Implement Oauth2 -- DONE
 // TODO -- explore different llm models for space and time complexity
 // TODO -- AI agent observability, eval
-// TODO -- IMPLEMENT DASHBOARD METRICS SHOWCASING PERFORMANCE OF EACH TOOL AND API CALL
+// TODO -- IMPLEMENT DASHBOARD METRICS SHOWCASING PERFORMANCE OF
+            //  EACH TOOL AND API CALL (Done)
 // TODO -- REPLICATE FAILING TOOL AND CHECK LLM BEHAVIOUR
-// TODO -- Implement RBAC
+// TODO -- Implement semantic cacheing
 // TODO -- AWS integration

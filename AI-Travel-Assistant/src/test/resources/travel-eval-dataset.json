@@ -1,0 +1,11 @@
+[
+  {
+    "id": "eval-001",
+    "input": "Plan a trip from JFK to LHR checking in on 2026-09-15 and out on 2026-09-20 with a flight budget of $800 and hotel budget of $200/night.",
+    "expectedTools": ["searchFlights", "searchHotels", "getWeather"],
+    "expectedConstraints": {
+      "maxFlightBudget": 800,
+      "maxHotelNightly": 200
+    }
+  }
+]

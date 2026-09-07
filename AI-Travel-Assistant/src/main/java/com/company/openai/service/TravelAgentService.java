@@ -1,5 +1,7 @@
 package com.company.openai.service;
 
+import com.company.openai.security.BudgetGuardrailAdvisor;
+import com.company.openai.security.ExecutionLimitAdvisor;
 import com.company.openai.tools.TravelTools;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
@@ -27,11 +29,18 @@ public class TravelAgentService {
                .build();
     }
 
-    public String processUserRequest(String userPrompt, String conversationId){
+    public String processTravelRequest(String userPrompt, String conversationId) {
         return this.chatClient.prompt()
                 .user(userPrompt)
                 .tools(this.travelTools)
-                .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
+                .advisors(
+                        // 1. Pass conversation context to memory advisor
+                        a -> a.param(ChatMemory.CONVERSATION_ID, conversationId)
+                        .advisors(
+                        // 2. Instantiate stateful guardrails per request/session execution
+                        new ExecutionLimitAdvisor(10),   // Max 10 agent iterations for THIS call
+                        new BudgetGuardrailAdvisor(1.50) // Max $1.50 budget for THIS call
+                ))
                 .call()
                 .content();
     }
