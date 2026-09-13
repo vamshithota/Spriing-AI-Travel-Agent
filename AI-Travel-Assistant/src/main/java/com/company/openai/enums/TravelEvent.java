@@ -1,9 +1,10 @@
 package com.company.openai.enums;
 
 public enum TravelEvent {
-    START,
-    FLIGHTS_FOUND,
-    HOTELS_FOUND,
-    BUDGET_CALCULATED,
+    START_PLANNING,
+    TASKS_GENERATED,
+    TOOLS_COMPLETED,
+    AGGREGATION_COMPLETED,
+    RETRY,
     ERROR_ENCOUNTERED
 }

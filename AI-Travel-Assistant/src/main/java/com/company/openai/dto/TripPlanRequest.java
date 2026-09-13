@@ -9,10 +9,8 @@ public class TripPlanRequest {
     @Size(min = 5, max = 1000, message = "Prompt must be between 5 and 1000 characters")
     private String prompt;
     @NotBlank(message = "Conversation ID is required")
-    @Pattern(
-            regexp = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-            message = "Conversation ID must be a valid UUID"
-    )
+    @NotBlank(message = "Conversation ID is required")
+    // REMOVED @Pattern constraint to accept non-UUID strings like "vamshit93"
     private String conversationId;
     public String getConversationId() {
         return conversationId;

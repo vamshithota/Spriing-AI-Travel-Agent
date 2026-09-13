@@ -229,4 +229,6 @@ public class FastMultiAgentService {
             //  EACH TOOL AND API CALL (Done)
 // TODO -- REPLICATE FAILING TOOL AND CHECK LLM BEHAVIOUR
 // TODO -- Implement semantic cacheing
+// TODO -- Integrate currency converter API
+// TODO -- Integrate flight Search API
 // TODO -- AWS integration
